@@ -1,0 +1,12 @@
+{% extends "home/base.html" %}
+{% block title %} Home {% endblock %}
+{% block content %}
+{% load static %}
+
+
+    <p>{{course.course_name}}</p>
+    <p>{{course.id}}</p>
+    <p> {{course.course_price}}</p>
+    <!-- <img src="{% static photo %}" alt="My image"><br> -->
+
+  {% endblock%}

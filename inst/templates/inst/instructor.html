@@ -1,0 +1,38 @@
+{% extends "home/base.html" %}
+{% block title %} Instructor {% endblock %}
+{% load static %}
+
+ {% block head %}
+ 
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+ <link rel="stylesheet" href="{% static 'inst/style/inst.css' %}">
+
+ {% endblock %}
+ {% block content %}
+  <!--First Card-->
+
+  {% for inst in instructors %}
+  <div class="container">  
+    <div class="cont">
+      <div class="card middle">
+        <div class="front">
+          <img src="{{ inst.photo.url }}" alt="">
+        </div>
+        <div class="back">
+          <div class="back-content middle">
+            <h2>{{ inst.first_name }} {{ inst.last_name }}</h2>
+            <span>Ast. Professior</span>
+            <div class="sm">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+
+          </div>
+        </div>  
+      </div>
+    </div>
+    {% endfor %}
+
+    {% endblock %}

@@ -1,0 +1,30 @@
+h2{
+    font-weight: bold;
+}
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+#loginform{
+    float: left;
+}
+#login{
+    margin-left: 90px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: tomato;
+
+}
+#eventcomming{
+    margin-top: 200px;
+}

@@ -1,0 +1,62 @@
+/* .top {
+    margin: auto;
+    width:800px;
+    height: 300px;
+    /* overflow: hidden; */
+
+* {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.top img {
+    width: 100%;
+    height: 600px;
+    opacity: 80%;
+} 
+
+.carousel-item .carousel-caption {
+    color: rgb(49, 40, 48);
+    top :50%;
+    font-weight: 600;
+    font-size: 25pt    ;
+
+}
+
+/*  Start Footer */
+
+.footer {
+    padding-top: 23px;
+    background-color: black;
+    color: aliceblue;
+
+}
+
+.footer .icons img {
+    width: 25px;
+    height: 25px;
+    margin:7px;
+}
+
+.footer ul li a , .footer-courses .latest-course a {
+    color : antiquewhite;
+    display: inline-block;
+    margin: 0.5rem 1rem;
+}
+.footer-courses .latest-course a:hover , .footer ul li a:hover {
+    color: burlywood;
+    text-decoration: none;
+}
+
+.latest-course p{
+    margin: 0.5rem 1rem;
+}
+.latest-course h5 {
+    margin-top: 15px;
+}
+
+.footer-news p {
+    margin: 2rem 1rem;
+
+}

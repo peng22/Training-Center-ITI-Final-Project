@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'home/style/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'home/style/style.css' %}">
+    {% block head %} {% endblock %}
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img src="https://via.placeholder.com/30" class="d-inline-block align-top" alt="">
+                E-Academy
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a> </li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'courses' %}">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'instuctor' %}">Instructors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+{% block content %} {% endblock %}
+    <footer class="footer">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-4 col-md-6">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li> <a href="{% url 'home' %}">Home</a> </li>
+                        <li> <a href="{% url 'about' %}">About</a> </li>
+                        <li> <a href="{% url 'instuctor' %}">Instructors</a> </li>
+                        <li> <a href="{% url 'courses' %}">Courses</a> </li>
+                        <li> <a href="#">Contact US</a> </li>
+                        <li> <a href="{% url 'register' %}">Registertion</a> </li>
+                        <li> <a href="{% url 'login' %}">Login</a> </li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-courses">
+                        <h4> Latest Courses</h4>
+                        <div class="latest-course">
+                            <a href="#">
+                                <h5>Course Name</h5>
+                            </a>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem</p>
+
+                        </div>
+                        <div class="latest-course">
+                            <a href="#">
+                                <h5>Course Name</h5>
+                            </a>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-news">
+                        <h4>Newsletter</h4>
+
+                        <p>nterdum et malesuada fames ac ante ipsum primis in faucibus, donec pellentesque lacus vitae
+                            dui
+                            ac aliquet lobortis, etiam posuere diam sed.</p>
+                        <div class="icons">
+                            <a href="#"><img src="{% static 'home/images/facebook.svg' %}"></a>
+                            <a href="#"><img src="{% static 'home/images/instagram.png' %}"></a>
+                            <a href="#"><img src="{% static 'home/images/twitter (1).svg' %}"></a>
+                            <a href="#"><img src="{% static 'home/images/whatsapp.svg' %}"></a>
+                            <a href="#"><img src="{% static 'home/images/youtube (1).svg' %}"></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+
+
+
+
+    <script src="{% static 'home/javascript/jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'home/javascript/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'home/javascript/main.js' %}"></script>
+</body>
+
+</html>
+
