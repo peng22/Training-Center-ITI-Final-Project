@@ -1,0 +1,16 @@
+h2{
+    font-weight: bold;
+}
+#loginform{
+    float: left;
+}
+#login{
+    margin-left: 90px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: tomato;
+
+}
+#eventcomming{
+    margin-top: 200px;
+}
