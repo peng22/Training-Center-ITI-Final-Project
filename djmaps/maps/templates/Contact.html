@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Contact Us</title>
+ 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.css' rel='stylesheet' />
+
+  </head>
+  <body>
+        <div class="container">
+            <section class="contact-section section-padding">
+                    <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-6">
+                        <div class="contact-form-area">
+                            <h2 class="contact-form-title">We Love to Hear From You</h2>
+                            <p>Please call or email contact form and we will be happy to assist you.</p>
+                            <form class="contact-from">
+                            <div class="frm-group">
+                                <input type="text" name="contact-name" id="contact-name" placeholder="Full Name">
+                            </div>
+                            <div class="frm-group">
+                                <input type="url" name="contact-website" id="contact-website" placeholder="Website">
+                            </div>
+                            <div class="frm-group">
+                                <input type="email" name="contact-email" id="contact-email" placeholder="Email">
+                            </div>
+                            <div class="frm-group">
+                                <textarea name="contact-message" id="contact-message" placeholder="Comments"></textarea>
+                            </div>
+                            <div class="frm-group">
+                                <input type="submit" value="submit now">
+                            </div>
+                            </form>
+                        </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                        <div class="contact-address-block">
+                            <span>Our Offices</span>
+                            <h4 class="contact-address-title">Contact Info</h4>
+                            <p>There are many variations of passages of an Lorem Ipsum available but the majority have suffered alteration.</p>
+                            <ul class="address-items-list">
+                            <li class="address-single-item">
+                                
+                                <div class="address-content">
+                                <h5>Find Us</h5>
+                                <p>1010 Avenue, NY 90001, USA</p>
+                                </div>
+                            </li><!-- address-single-item end -->
+                            <li class="address-single-item">
+                               
+                                <div class="address-content">
+                                <h5>Call Us</h5>
+                                <p>+00 152 152 4920</p>
+                                </div>
+                            </li><!-- address-single-item end -->
+                            <li class="address-single-item">
+                            
+                                <div class="address-content">
+                                <h5>Mail Us</h5>
+                                <p>info@domain.com</p>
+                                </div>
+                            </li><!-- address-single-item end -->
+                            </ul>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+            </section>
+        <!-- contact-section end -->
+        </div>
+        <div class="container">
+        <div id='map' style='width: 100%%; height: 500px;'></div>
+        </div>
+        <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiaGFtZWRoYW1lZCIsImEiOiJjazY4ZXZkaG0wNDNkM21sYXhqMzB2OTVwIn0.Tp1TLwdkmFMPxH-ejTFVAg';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/satellite-streets-v10',
+                    center: [31.23528 , 30.04167],
+                    zoom: 14  ,
+                    bearing: 360
+                });
+
+        var size = 200;
+        
+        // implementation of CustomLayerInterface to draw a pulsing dot icon on the map
+        // see https://docs.mapbox.com/mapbox-gl-js/api/#customlayerinterface for more info
+        var pulsingDot = {
+        width: size,
+        height: size,
+        data: new Uint8Array(size * size * 4),
+        
+        // get rendering context for the map canvas when layer is added to the map
+        onAdd: function() {
+        var canvas = document.createElement('canvas');
+        canvas.width = this.width;
+        canvas.height = this.height;
+        this.context = canvas.getContext('2d');
+        },
+        
+        // called once before every frame where the icon will be used
+        render: function() {
+        var duration = 1000;
+        var t = (performance.now() % duration) / duration;
+        
+        var radius = (size / 2) * 0.3;
+        var outerRadius = (size / 2) * 0.7 * t + radius;
+        var context = this.context;
+        
+        // draw outer circle
+        context.clearRect(0, 0, this.width, this.height);
+        context.beginPath();
+        context.arc(
+        this.width / 2,
+        this.height / 2,
+        outerRadius,
+        0,
+        Math.PI * 2
+        );
+        context.fillStyle = 'rgba(255, 200, 200,' + (1 - t) + ')';
+        context.fill();
+        
+        // draw inner circle
+        context.beginPath();
+        context.arc(
+        this.width / 2,
+        this.height / 2,
+        radius,
+        0,
+        Math.PI * 2
+        );
+        context.fillStyle = 'rgba(255, 100, 100, 1)';
+        context.strokeStyle = 'white';
+        context.lineWidth = 2 + 4 * (1 - t);
+        context.fill();
+        context.stroke();
+        
+        // update this image's data with data from the canvas
+        this.data = context.getImageData(
+        0,
+        0,
+        this.width,
+        this.height
+        ).data;
+        
+        // continuously repaint the map, resulting in the smooth animation of the dot
+        map.triggerRepaint();
+        
+        // return `true` to let the map know that the image was updated
+        return true;
+        }
+        };
+        
+        map.on('load', function() {
+        map.addImage('pulsing-dot', pulsingDot, { pixelRatio: 2 });
+        
+        map.addSource('points', {
+        'type': 'geojson',
+        'data': {
+        'type': 'FeatureCollection',
+        'features': [
+        {
+        'type': 'Feature',
+        'geometry': {
+        'type': 'Point',
+        'coordinates': [31.23528 , 30.04167]
+        }
+        }
+        ]
+        }
+        });
+        map.addLayer({
+        'id': 'points',
+        'type': 'symbol',
+        'source': 'points',
+        'layout': {
+        'icon-image': 'pulsing-dot'
+        }
+        });
+        });
+        
+        </script>
+
+  </body>
+</html>
