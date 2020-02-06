@@ -1,0 +1,11 @@
+[{"qBody" : "print type(type(int))", "cAnswer" : "type 'type'", "answersArray": ["type int","type type","Error","0"]},
+ {"qBody" : "Which of these is not a core data type?", "cAnswer" : "Class", "answersArray": ["Lists","Dictionary","Tuples","Class"]},
+ {"qBody" : "What data type is the object below ? L = [1, 23, ‘hello’, 1]", "cAnswer" : "List", "answersArray": ["Dictionary","Tuple","Array","list"]},
+ {"qBody" : "Which of the following function convert a string to a float in python?", "cAnswer" : "float(x)", "answersArray": ["int(x [,base])","long(x [,base] )","float(x)","str(x)"]},
+ {"qBody" : "Given a function that does not return any value, what value is shown when executed at the shell?", "cAnswer" : "None", "answersArray": ["void","int","bool","None"]},
+ {"qBody" : "Which module in Python supports regular expressions?", "cAnswer" : "re", "answersArray": ["regex","re","pyregex","None of the above"]},
+ {"qBody" : "Which of the following is not a complex number?", "cAnswer" : "k = 2 + 3l", "answersArray": ["k = 2 + 3j","k = complex(2, 3)","k = 2 + 3l","k = 2 + 3J"]},
+ {"qBody" : "What does ~~~~~~5 evaluate to?", "cAnswer" : "+5", "answersArray": ["-11","+5","+11","-5"]},
+ {"qBody" : "Given a string s = “Welcome”, which of the following code is incorrect?", "cAnswer" : "s[1] = ‘r’", "answersArray": ["print s[0]","s[1] = ‘r’","print s.strip()","print s.lower()"]},
+ {"qBody" : "________ is a simple but incomplete version of a function.", "cAnswer" : "Stub", "answersArray": ["A function developed using top-down approach","Stub","A function developed using bottom-up approach","Function"]},
+ 
