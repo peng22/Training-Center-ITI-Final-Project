@@ -15,8 +15,10 @@
   <div class="container">  
     <div class="cont">
       <div class="card middle">
-        <div class="front">
+        <div class="front"> 
+          {% if inst.photo %}
           <img src="{{ inst.photo.url }}" alt="">
+          {% endif %}
         </div>
         <div class="back">
           <div class="back-content middle">
