@@ -19,7 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    
+    path('', include('student.urls')),
     path('courses/', include('courses.urls')),
     path('inst/', include('inst.urls')),
     path('', include('registration.urls')),

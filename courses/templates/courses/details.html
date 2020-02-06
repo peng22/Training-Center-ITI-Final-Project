@@ -3,10 +3,17 @@
 {% block content %}
 {% load static %}
 
+<h2>{{course.course_name}}</h2>
 
-    <p>{{course.course_name}}</p>
-    <p>{{course.id}}</p>
-    <p> {{course.course_price}}</p>
+{% for group in course_groups %}
+
+  <p>Instructor : {{ group.class_Instructor }}</p>
+  <p>Start Date : {{ group.strat_date }}</p>
+  <p>End Date : {{ group.end_date }}</p>
+ <button><a href="{% url 'enroll' group.id %}">enroll</a></button>
+
+
+{% endfor %}
     <!-- <img src="{% static photo %}" alt="My image"><br> -->
 
   {% endblock%}

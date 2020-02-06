@@ -3,7 +3,13 @@
 {% load static %}
 {% block content %}
     {% for course in mycourses %}
-    <li><a href="{% url 'details' course.id %}">{{course.course_name}}</a></li>
+    <div><a href="{% url 'details' course.id %}">{{course.course_name}}</a>
+    <p>lorem lorem llorem lorem </p>
+    <!-- <button>Enroll</button> -->
+
+    
+    
+    </div>
     {% endfor %}
 
 {% endblock %}
