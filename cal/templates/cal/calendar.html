@@ -1,0 +1,14 @@
+
+{% extends "home/base.html" %}
+{% block title %} Calendar {% endblock %}
+{% load static %}
+{% block head %} 
+<link rel="stylesheet" href="{% static 'cal/style.css' %}">
+
+{% endblock %}
+
+{% block content %} 
+
+    {{ calendar }}
+
+    {% endblock %}

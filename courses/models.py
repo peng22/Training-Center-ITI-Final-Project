@@ -18,7 +18,7 @@ class ClassGroup(models.Model):
     end_date = models.DateField()
     students = models.ManyToManyField(Student, through = 'Enrollment' )
     def __str__(self):
-        return f"{self.course} class ID no: {self.id}"
+        return f"{self.course}"
 
 
 class Enrollment(models.Model):

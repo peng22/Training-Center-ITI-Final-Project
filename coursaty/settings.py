@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'cal.apps.CalConfig',
     'student.apps.StudentConfig',
     'home.apps.HomeConfig',
     'crispy_forms',
