@@ -1,0 +1,25 @@
+{% extends "home/base.html" %}
+{% block title %} Thank You{% endblock %}
+{% load static %}
+
+
+{%block head %}
+
+
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.css' rel='stylesheet' />
+
+    {% endblock %}
+      <div class="container  ">
+
+            <main role="main" class="inner cover ">
+                <h1 class="cover-heading d-flex justify-content-center">Cover your page.</h1>
+                <p class="lead d-flex justify-content-center">Thank you for your message.<br> We Really Appreciate This.</p>
+                <p class="lead d-flex justify-content-center">
+                  <a href='{% url "home" %}' class="btn btn-lg btn-secondary">Home</a>
+                </p>
+             </main>
+       </div>
+
+
+         <script src="{% static 'contact/contact.js' %}"></script>
+</body>

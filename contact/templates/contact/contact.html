@@ -1,0 +1,91 @@
+{% extends "home/base.html" %}
+{% block title %} Contact Us {% endblock %}
+{% load static %}
+
+
+{%block head %}
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.css' rel='stylesheet' />
+<style>
+    #map {
+        width: 100%;
+        height: 500px;
+    }
+</style>
+
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="container">
+    <section class="contact-section section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-6">
+                    <div class="contact-form-area">
+                        <h2 class="contact-form-title">We Love to Hear From You</h2>
+                        <p>Please call or email contact form and we will be happy to assist you.</p>
+                        <form class="contact-from" method="post">
+                            {% csrf_token %}
+                            <div class="form-group text-light">
+                                {{ form.as_ul }}
+
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-default bg-dark text-light">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="contact-address-block">
+                        <span>Our Offices</span>
+                        <h4 class="contact-address-title">Contact Info</h4>
+                        <p>There are many variations of passages of an Lorem Ipsum available but the majority have
+                            suffered alteration.</p>
+                        <ul class="address-items-list">
+                            <li class="address-single-item">
+
+                                <div class="address-content">
+                                    <h5>Find Us</h5>
+                                    <p>1010 Avenue, NY 90001, USA</p>
+                                </div>
+                            </li><!-- address-single-item end -->
+                            <li class="address-single-item">
+
+                                <div class="address-content">
+                                    <h5>Call Us</h5>
+                                    <p>+00 152 152 4920</p>
+                                </div>
+                            </li><!-- address-single-item end -->
+                            <li class="address-single-item">
+
+                                <div class="address-content">
+                                    <h5>Mail Us</h5>
+                                    <p>info@domain.com</p>
+                                </div>
+                            </li><!-- address-single-item end -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- contact-section end -->
+</div>
+<div class="container">
+    <div id='map'></div>
+</div>
+
+
+
+<script src="{% static 'contact/contact.js' %}"></script>
+
+{% endblock %}
