@@ -1,0 +1,18 @@
+{% extends "home/base.html" %}
+{% block title %} {{track}} {% endblock %}
+{% block content %}
+{% load static %}
+
+<h2>{{track.name}}</h2>
+
+{% for course in track_courses %}
+
+  <p>Course : {{ course.course_name }}</p>
+  <p>Hours : {{ course.course_hours }}</p>
+  <!-- <p>End Date : {{ group.end_date }}</p> -->
+  <hr>
+    
+{% endfor %}
+    <!-- <img src="{% static photo %}" alt="My image"><br> -->
+
+  {% endblock%}

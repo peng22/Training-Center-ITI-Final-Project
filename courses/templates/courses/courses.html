@@ -2,13 +2,17 @@
 {% block title %} Home {% endblock %}
 {% load static %}
 {% block content %}
+<h1>Courses</h1>
     {% for course in mycourses %}
     <div><a href="{% url 'details' course.id %}">{{course.course_name}}</a>
     <p>lorem lorem llorem lorem </p>
-    <!-- <button>Enroll</button> -->
+    </div>
+    {% endfor %}
 
-    
-    
+<h1>Tracks</h1>
+    {% for track in tracks %}
+    <div><a href="{% url 'track_details' track.id %}">{{track.name}}</a>
+    <p>lorem lorem llorem lorem </p>
     </div>
     {% endfor %}
 
