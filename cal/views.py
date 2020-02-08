@@ -3,7 +3,7 @@ from datetime import datetime
 from django.http import HttpResponse
 from django.views import generic
 from django.utils.safestring import mark_safe
-from .models import *
+from courses.models import Session
 from .utils import Calendar
 # Create your views here.
 
@@ -13,12 +13,13 @@ class CalendarView(generic.ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        logged_user = self.request.user
 
         # use today's date for the calendar
         d = get_date(self.request.GET.get('day', None))
 
         # Instantiate our calendar class with today's year and date
-        cal = Calendar(d.year, d.month)
+        cal = Calendar(d.year, d.month,logged_user)
 
         # Call the formatmonth method, which returns our calendar as a table
         html_cal = cal.formatmonth(withyear=True)
