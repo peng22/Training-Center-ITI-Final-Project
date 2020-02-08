@@ -1,0 +1,16 @@
+{% extends "home/base.html" %}
+{% block title %} Home {% endblock %}
+{% block content %}
+{% load static %}
+
+
+
+
+ {% for course in courses %}
+<h2>{{course.course.course_name}}</h2>
+  <div><a href="{% url 'details' course.id %}">{{ course.course.course_name }}</a>
+
+
+{% endfor %} 
+
+  {% endblock%}

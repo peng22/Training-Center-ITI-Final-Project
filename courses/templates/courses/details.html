@@ -10,7 +10,9 @@
   <p>Instructor : {{ group.class_Instructor }}</p>
   <p>Start Date : {{ group.strat_date }}</p>
   <p>End Date : {{ group.end_date }}</p>
- <button><a href="{% url 'enroll' group.id %}">enroll</a></button>
+  <p>Session Count : {{group.session_count}}</p>
+  <p>Course Days : {% for day in group.days.all %}{{day}}{% endfor %}</p>
+ <button><a href="{% url 'enroll' group.id %}">Eenroll</a></button>
 
 
 {% endfor %}

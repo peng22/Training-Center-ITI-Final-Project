@@ -7,8 +7,22 @@
 
 {% endblock %}
 
-{% block content %} 
 
-    {{ calendar }}
+{% block content %}
 
-    {% endblock %}
+
+{{ calendar }}
+
+{% endblock %}
+
+
+{% block footer %}
+
+    <script src="{% static 'home/javascript/jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'home/javascript/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'home/javascript/main.js' %}"></script>
+</body>
+
+</html>
+
+{% endblock %}

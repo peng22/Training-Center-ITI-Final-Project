@@ -38,7 +38,56 @@
         </div>
     </nav>
 
+    {% if user.is_authenticated %}
+      <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <a class="navbar-brand" href="#">e</a>
+             <div class="container">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{%url 'studentcourses' %}">My Courses </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{%url 'calendar' %}">My Calendar </a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'studentreg' %}">Welcome, {{ user.username }}.</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Logout.</a>
+              </li>
+          </ul> 
+        </div>
+      </nav>   
+
+    <p></p>
+{% else %}
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <a class="navbar-brand" href="#">e</a>
+             <div class="container">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{%url 'login' %}">Login </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'studentreg' %}">Register</a>
+            </li>
+
+          </ul> 
+        </div>
+      </nav>    
+{% endif %}
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
 {% block content %} {% endblock %}
+
+{% block footer %}
     <footer class="footer">
         <div class="container">
 
@@ -52,7 +101,7 @@
                         <li> <a href="{% url 'instuctor' %}">Instructors</a> </li>
                         <li> <a href="{% url 'courses' %}">Courses</a> </li>
                         <li> <a href="#">Contact US</a> </li>
-                        <li> <a href="{% url 'register' %}">Registertion</a> </li>
+                        <li> <a href="{% url 'studentreg' %}">Registertion</a> </li>
                         <li> <a href="{% url 'login' %}">Login</a> </li>
                     </ul>
                 </div>
@@ -108,3 +157,4 @@
 
 </html>
 
+{% endblock %}

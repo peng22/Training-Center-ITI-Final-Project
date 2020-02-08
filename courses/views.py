@@ -1,12 +1,13 @@
-from django.shortcuts import render , get_object_or_404
+from django.shortcuts import render , get_object_or_404 , redirect
 from django.http import HttpResponse
 from .models import Course ,Instructor ,ClassGroup , Track
+from django.contrib import messages
+
 # Create your views here.
 
 def list_course(request):
     courses = list(Course.objects.all())
     tracks = Track.objects.all()
-    # instructors = list(Instructor.objects.all())
     context = {"mycourses" : courses, "tracks" : tracks}
     return render(request, 'courses/courses.html', context)
 
@@ -18,11 +19,16 @@ def details(request,course_id):
     return render(request,'courses/details.html', context)
 
 def enrollment(request,group_id):
-    #TODO add authention check before enroll
-    student = request.user.student
-    group = ClassGroup.objects.get(pk=group_id)
-    group.students.add(student)
-    return render(request,'courses/mycourses.html')
+    if request.user.is_authenticated:
+        student = request.user.student
+        group = ClassGroup.objects.get(pk=group_id)
+        group.students.add(student)
+        return redirect('studentcourses')
+    else:
+        messages.error(request, 'You need to login First.')
+        return redirect('login')
+
+
 
 def track_details(request,track_id):
     track = get_object_or_404(Track , pk = track_id)

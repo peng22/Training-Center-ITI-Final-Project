@@ -2,14 +2,9 @@ from django.db import models
 from inst.models import Instructor
 from student.models import Student
 from datetime import datetime, timedelta
-# from cal.models import Session
 from .utlis import SortWeek
-
 from django.db.models.signals import post_save ,m2m_changed
 from django.dispatch import receiver
-
-
-
 
 class Course(models.Model):
     course_name = models.CharField(max_length=200)
@@ -18,14 +13,14 @@ class Course(models.Model):
     def __str__(self):
         return self.course_name
 
-#course instance 
+
 class Weekday(models.Model):
     Week = models.IntegerChoices('Week','Monday Tuesday Wednesday Thursday Friday Saturday Sunday')
     days = models.SmallIntegerField(choices = Week.choices,unique=True)
     def __str__(self):
         return f' {self.get_days_display()} '
 
-
+#course instance 
 class ClassGroup(models.Model):
     class_Instructor = models.ForeignKey(Instructor, on_delete=models.CASCADE)
     course = models.ForeignKey(Course, on_delete=models.PROTECT )
@@ -34,6 +29,7 @@ class ClassGroup(models.Model):
     session_count = models.IntegerField()   
     days = models.ManyToManyField(Weekday)
     students = models.ManyToManyField(Student, through = 'Enrollment' )
+    
 
     def generateSessionsdate(self):
         # cor = self.course
@@ -59,16 +55,8 @@ class ClassGroup(models.Model):
                 sessiondate +=  timedelta(days = dt)
                 Session.objects.create(session_date = sessiondate , course = self)
                 sessionc += 1
-
-    # def save(self,*args,**kwargs):
-    #     created = not self.pk
-    #     super().save(*args,**kwargs)
-    #     if created:
-    #         self.generateSessionsdate()
-
     def __str__(self):
         return f"{self.course}" 
-
 
 
 class Enrollment(models.Model):
@@ -85,7 +73,6 @@ class Track(models.Model):
     price = models.IntegerField()
     def __str__(self):
         return self.name
-
 
 
 class Session(models.Model):

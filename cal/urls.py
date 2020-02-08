@@ -3,5 +3,5 @@ from . import views
 
 
 urlpatterns = [
-    path("cal",views.CalendarView.as_view(), name ="calendar"),
+    path("student/profile/cal",views.CalendarView.as_view(), name ="calendar"),
 ]

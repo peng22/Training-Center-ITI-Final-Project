@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'crispy_forms',
     'courses.apps.CoursesConfig',
-    'registration.apps.RegistrationConfig',
     'blog.apps.BlogConfig',
     'inst.apps.InstConfig',
     'django.contrib.admin',
@@ -131,3 +130,5 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'inst/media')
+
+LOGIN_REDIRECT_URL = 'home' 
