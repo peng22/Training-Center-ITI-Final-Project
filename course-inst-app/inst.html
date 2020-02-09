@@ -1,0 +1,33 @@
+{% extends "home/base.html" %}
+{% block title %} Instructors {% endblock %}
+{% block content %}
+{% load static %}>
+
+
+<div class="container">
+
+    <h1>Instructors</h1>
+    <div class="row">
+
+      {% for instructor in instructors %}
+        <div class="col-lg-4 mb-4">
+            <div class="card " style="width: 18rem;">
+                  <img src="{{instructor.instructor_image.url}}" height=220px ,width=150px  class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ instructor}}</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="{%url 'inst_details' instructor.id%}" class="btn btn-primary">preview</a>
+                  </div>
+            </div>
+        </div>
+
+
+
+
+      {% endfor %}
+
+    </div>
+</div>
+
+
+{% endblock %}
