@@ -9,6 +9,7 @@ class Instructor(models.Model):
     date_of_birth = models.DateField('Birthday')
     email = models.EmailField()
     photo = models.ImageField(upload_to = 'profile' , blank=True)
+    summary = models.TextField()
 
     def __str__(self):
         return self.first_name + self.last_name

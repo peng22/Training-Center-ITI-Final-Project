@@ -1,0 +1,28 @@
+
+{% extends "home/base.html" %}
+{% block title %} {{instructor.instructor_name}} {% endblock %}
+{% block content %}
+{% load static %}>
+
+  <div class="container">
+     <div  class="row  d-flex justify-content-center p-2" >{% if instructor.photo %}<img src="{{instructor.photo.url}}" width=300px , hight=300px ,alt="My image">{% endif %}</div>
+
+    <div class="row ">
+       <div  class=" col-sm-12 col-md-3 d-flex justify-content-center text-color='light' p-3" > Summary </div>
+       <div  class=" col-sm-12 col-md-9 d-flex justify-content-center p-3" >{{instructor.summary}}</div>
+    </div>
+
+
+    <div class="row ">
+    <div  class="col-sm-12 col-md-3 d-flex justify-content-center text-color='light' p-3" >Courses</div>
+    <div  class="col-sm-12 col-md-9 d-flex justify-content-center p-3" >                        
+        {%for ins in instructor.classgroup_set.all %}
+        <p> {{ ins }} , </p>
+        {%endfor%}</div>
+  <div>
+
+     </div>
+
+
+
+{% endblock %}

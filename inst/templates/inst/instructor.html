@@ -1,40 +1,35 @@
-{% extends "home/base.html" %}
+  {% extends "home/base.html" %}
 {% block title %} Instructor {% endblock %}
 {% load static %}
 
- {% block head %}
- 
- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
- <link rel="stylesheet" href="{% static 'inst/style/inst.css' %}">
+{% block head %}
 
- {% endblock %}
- {% block content %}
-  <!--First Card-->
+{% endblock %}
+{% block content %}
+<!--First Card-->
 
-  {% for inst in instructors %}
-  <div class="container">  
-    <div class="cont">
-      <div class="card middle">
-        <div class="front"> 
-          {% if inst.photo %}
-          <img src="{{ inst.photo.url }}" alt="">
-          {% endif %}
+<div class="container">
+  <h1>Our Instructors</h1>
+  <div class="row">
+    {% for inst in instructors %}
+    <div class="col-lg-4 mb-4">
+      <div class="card " style="width: 18rem;">
+        {% if inst.photo %}
+        <img src="{{ inst.photo.url }}" class="card-img-top" alt="" height="150px" width="150px">
+        {% else %}
+        <div style="width: 150px; height: 150px;"></div>
+        {% endif %}
+
+        <div class=" card-body">
+          <h5 class="card-title">{{ inst.first_name }} {{ inst.last_name }}</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="{% url 'inst-details' inst.id %}" class="btn btn-primary">details</a>
         </div>
-        <div class="back">
-          <div class="back-content middle">
-            <h2>{{ inst.first_name }} {{ inst.last_name }}</h2>
-            <span>Ast. Professior</span>
-            <div class="sm">
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-youtube"></i></a>
-              <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-
-          </div>
-        </div>  
+       </div>
       </div>
-    </div>
     {% endfor %}
+  </div>
 
-    {% endblock %}
+</div>
+
+{% endblock %}

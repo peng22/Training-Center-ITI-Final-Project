@@ -2,18 +2,44 @@
 {% block title %} Home {% endblock %}
 {% load static %}
 {% block content %}
-<h1>Courses</h1>
+    <div class="container">
+    <h1>Our Courses</h1>
+    <div class="row">
     {% for course in mycourses %}
-    <div><a href="{% url 'details' course.id %}">{{course.course_name}}</a>
-    <p>lorem lorem llorem lorem </p>
-    </div>
-    {% endfor %}
+    <div class="col-lg-4 mb-4">
+        <div class="card " style="width: 18rem;">
+              <img src="..." class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">{{ course }}</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="{%url 'course_details' course.id%}" class="btn btn-primary">preview</a>
+                <a href="{%url 'course_class' course.id%}" class="btn btn-primary">Available Classes</a>
 
+              </div>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+</div>
+
+
+    <div class="container">
 <h1>Tracks</h1>
-    {% for track in tracks %}
-    <div><a href="{% url 'track_details' track.id %}">{{track.name}}</a>
-    <p>lorem lorem llorem lorem </p>
-    </div>
-    {% endfor %}
 
+        <div class="row">
+        {% for track in tracks %}
+        <div class="col-lg-4 mb-4">
+            <div class="card " style="width: 18rem;">
+                  <img src="..." class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ track }}</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="{%url 'track_details' track.id%}" class="btn btn-primary">preview</a>
+                  </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    </div>
 {% endblock %}
